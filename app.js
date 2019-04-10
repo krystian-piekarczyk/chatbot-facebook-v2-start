@@ -10,7 +10,7 @@ const app = express();
 const uuid = require('uuid');
 
 
-// Messenger API parameters
+// Messenger API parameters/ Spsrawdzenie tokenów
 if (!config.FB_PAGE_TOKEN) {
     throw new Error('missing FB_PAGE_TOKEN');
 }
@@ -59,7 +59,7 @@ app.use(bodyParser.json());
 
 
 
-
+// dialogFlow client
 
 const credentials = {
     client_email: config.GOOGLE_CLIENT_EMAIL,
@@ -76,9 +76,9 @@ const sessionClient = new dialogflow.SessionsClient(
 
 const sessionIds = new Map();
 
-// Index route
+// Index route 
 app.get('/', function (req, res) {
-    res.send('Hello world, I am a chat bot')
+    res.send('Hello world, I am King-Messenger a chat bot')
 })
 
 // for Facebook verification
