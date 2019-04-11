@@ -204,11 +204,28 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleDialogFlowAction(sender, action, messages, contexts, parameters) {
     switch (action) {
-        default:
-            //unhandled action, just send back the text
+        case "facebook_location":
+            //dialogflow action facebook_location
             handleMessages(messages, sender);
-    }
-}
+
+            sendTypingOn(sender);
+
+            setTimeout(function() {
+
+
+                let buttons = [
+
+                    {
+                        type:"phone_number",
+                        title:"Call us",
+                        payload:"+16505551234",
+                    }
+                ];
+                sendButtonMessage(sender, "Przechwycenie action", buttons);
+    }, 3000)
+
+
+            break;
 
 function handleMessage(message, sender) {
     switch (message.message) {
@@ -860,7 +877,5 @@ function isDefined(obj) {
     return obj != null;
 }
 
-// Spin up the server
-app.listen(app.get('port'), function () {
-    console.log('running on port', app.get('port'))
-})
+    }
+}
