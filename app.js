@@ -735,9 +735,8 @@ function receivedPostback(event) {
     var payload = event.postback.payload;
 
     switch (payload) {
-        case 'powitanie_p': 
-               //get feedback with new jobs 
-   			sendToDialogFlow(senderID, 'powitanie_p'); 
+        default :
+
               break; 
 
 
