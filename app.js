@@ -735,10 +735,11 @@ function receivedPostback(event) {
     var payload = event.postback.payload;
 
     switch (payload) {
-        default:
-            //unindentified payload
-            sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
-            break;
+        case 'powitanie_p': 
+               //get feedback with new jobs 
+   			sendToDialogFlow(senderID, 'hej'); 
+              break; 
+
 
     }
 
