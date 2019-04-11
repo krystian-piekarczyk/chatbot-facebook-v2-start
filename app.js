@@ -737,7 +737,7 @@ function receivedPostback(event) {
     switch (payload) {
         case 'powitanie_p': 
                //get feedback with new jobs 
-   			sendToDialogFlow(senderID, 'hej'); 
+   			sendToDialogFlow(senderID, 'powitanie_p'); 
               break; 
 
 
