@@ -41,9 +41,9 @@ if (!config.SERVER_URL) { //used for ink to static files
 app.set('port', (process.env.PORT || 5000))
 
 //verify request came from facebook 
-// app.use(bodyParser.json({
-//     verify: verifyRequestSignature
-// }));
+app.use(bodyParser.json({
+    verify: verifyRequestSignature
+}));
 
 //serve static files in the public directory
 app.use(express.static('public'));
@@ -208,6 +208,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
             //dialogflow action facebook_location
             handleMessages(messages, sender);
 
+            
             sendTypingOn(sender);
 
             setTimeout(function() {
@@ -226,6 +227,8 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
             break;
+}
+}
 
 function handleMessage(message, sender) {
     switch (message.message) {
@@ -880,6 +883,5 @@ function isDefined(obj) {
 // Spin up the server
 app.listen(app.get('port'), function () {
     console.log('running on port', app.get('port'))
-})
-
-
+}
+)
