@@ -218,11 +218,11 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
                     {
                         type:"phone_number",
-                        title:"Call us",
+                        title:"Mapa",
                         payload:"+16505551234",
                     }
                 ];
-                sendButtonMessage(sender, "Przechwycenie action", buttons);
+                sendButtonMessage(sender, "Lokalizacja", buttons);
     }, 3000)
 
 
