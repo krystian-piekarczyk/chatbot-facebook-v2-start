@@ -217,9 +217,10 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                 let buttons = [
 
                     {
-                        type:"phone_number",
-                        title:"Lokalizacja",
-                        payload:"https://www.google.com/maps/search/?api=1&parameters",
+                        type:"web_url",
+                         url:"https://www.google.com/maps",
+                         title:"Lokalizacja",
+                         webview_height_ratio: "full"
                     }
                 ];
                 sendButtonMessage(sender, "Lokalizacja", buttons);
