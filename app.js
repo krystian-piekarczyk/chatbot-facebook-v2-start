@@ -218,7 +218,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
                     {
                         type:"phone_number",
-                        title:"Mapa",
+                        title:"Lokalizacja",
                         payload:"+16505551234",
                     }
                 ];
