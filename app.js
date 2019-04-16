@@ -219,7 +219,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     {
                         type:"phone_number",
                         title:"Lokalizacja",
-                        payload:"+16505551234",
+                        payload:"https://www.google.com/maps/search/?api=1&parameters",
                     }
                 ];
                 sendButtonMessage(sender, "Lokalizacja", buttons);
