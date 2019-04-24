@@ -218,7 +218,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
                     {
                         type:"web_url",
-                         url:"https://www.google.com/maps",
+                         url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot ",
                          title:"Lokalizacja",
                          webview_height_ratio: "full"
                     }
