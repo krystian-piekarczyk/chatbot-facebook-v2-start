@@ -743,7 +743,7 @@ function receivedPostback(event) {
 
     }
 
-    console.log("Received postback for user %d and page %d with payload '%s' " +
+    console.log("Received postback for user %d and page %d with payload %d " +
         "at %d", senderID, recipientID, payload, timeOfPostback);
 
 }
