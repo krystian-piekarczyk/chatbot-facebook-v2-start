@@ -219,7 +219,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     {
                         type:"web_url",
                          url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot ",
-                         title:"Lokalizacja",
+                         title:"Aby użyć lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie",
                          webview_height_ratio: "full"
                     }
                 ];
