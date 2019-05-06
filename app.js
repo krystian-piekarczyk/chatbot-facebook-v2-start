@@ -218,7 +218,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
                     {
                         type:"web_url",
-                         url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot ",
+                         url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&address=Katowice",
                          title:"Lokalizacja",
                          webview_height_ratio: "full"
                     }
