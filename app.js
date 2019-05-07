@@ -351,7 +351,7 @@ function handleDialogFlowResponse(sender, response) {
     }
 }
 
-async function sendToDialogFlow(sender, textString, params, action, quickReplies ) {
+async function sendToDialogFlow(sender, textString, params ) {
 
     sendTypingOn(sender);
 
