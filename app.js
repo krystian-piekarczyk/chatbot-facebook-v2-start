@@ -186,7 +186,7 @@ function receivedMessage(event) {
 
 function handleMessageAttachments(messageAttachments, senderID){
     //for now just reply
-    sendTextMessage(senderID, "Attachment received. Thank you.");
+    sendTextMessage(senderID, "Otrzymaliśmy załącznik, dziękujemy");
 }
 
 function handleQuickReply(senderID, quickReply, messageId) {
@@ -337,7 +337,7 @@ function handleDialogFlowResponse(sender, response) {
     let contexts = response.outputContexts;
     let parameters = response.parameters;
 
-    sendTypingOff(sender);
+    sendTypingOn(sender);
 
     if (isDefined(action)) {
         handleDialogFlowAction(sender, action, messages, contexts, parameters);
