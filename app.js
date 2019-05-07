@@ -337,7 +337,7 @@ function handleDialogFlowResponse(sender, response) {
     let contexts = response.outputContexts;
     let parameters = response.parameters;
 
-    sendTypingOn(sender);
+    sendTypingOff(sender);
 
     if (isDefined(action)) {
         handleDialogFlowAction(sender, action, messages, contexts, parameters);
@@ -351,7 +351,7 @@ function handleDialogFlowResponse(sender, response) {
     }
 }
 
-async function sendToDialogFlow(sender, textString, params) {
+async function sendToDialogFlow(sender, textString, params, action, quickReplies ) {
 
     sendTypingOn(sender);
 
