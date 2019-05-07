@@ -220,7 +220,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         type:"web_url",
                          url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&address=Katowice",
                          title:"Lokalizacja",
-                         webview_height_ratio: "full"
+                         webview_height_ratio: "tall"
                     }
                 ];
                 sendButtonMessage(sender, "Aby użyć lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
