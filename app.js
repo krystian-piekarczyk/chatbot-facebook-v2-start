@@ -10,7 +10,7 @@ const app = express();
 const uuid = require('uuid');
 
 
-// Messenger API parameters/ Sprawdzenie tokenów //
+// Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
     throw new Error('missing FB_PAGE_TOKEN');
 }
@@ -40,7 +40,7 @@ if (!config.SERVER_URL) { //used for ink to static files
 
 app.set('port', (process.env.PORT || 5000))
 
-//verify request came from facebook 
+//verify request came from facebook
 app.use(bodyParser.json({
     verify: verifyRequestSignature
 }));
@@ -59,7 +59,7 @@ app.use(bodyParser.json());
 
 
 
-// dialogFlow client
+
 
 const credentials = {
     client_email: config.GOOGLE_CLIENT_EMAIL,
@@ -76,9 +76,9 @@ const sessionClient = new dialogflow.SessionsClient(
 
 const sessionIds = new Map();
 
-// Index route 
+// Index route
 app.get('/', function (req, res) {
-    res.send('Hello world, I am King-Messenger a chat bot')
+    res.send('Hello world, I am a chat bot')
 })
 
 // for Facebook verification
@@ -186,7 +186,7 @@ function receivedMessage(event) {
 
 function handleMessageAttachments(messageAttachments, senderID){
     //for now just reply
-    sendTextMessage(senderID, "Otrzymaliśmy załącznik, dziękujemy");
+    sendTextMessage(senderID, "Attachment received. Thank you.");
 }
 
 function handleQuickReply(senderID, quickReply, messageId) {
@@ -207,8 +207,6 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
         case "facebook_location":
             //dialogflow action facebook_location
             handleMessages(messages, sender);
-
-            
             sendTypingOn(sender);
 
             setTimeout(function() {
@@ -226,10 +224,13 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                 sendButtonMessage(sender, "Aby użyć lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
     }, 3000)
 
+        
+        default:
+            //unhandled action, just send back the text
+            handleMessages(messages, sender);
+    }
+}
 
-            break;
-}
-}
 
 function handleMessage(message, sender) {
     switch (message.message) {
@@ -351,7 +352,7 @@ function handleDialogFlowResponse(sender, response) {
     }
 }
 
-async function sendToDialogFlow(sender, textString, params ) {
+async function sendToDialogFlow(sender, textString, params) {
 
     sendTypingOn(sender);
 
@@ -736,14 +737,18 @@ function receivedPostback(event) {
     var payload = event.postback.payload;
 
     switch (payload) {
-        default :
-
+        default:
+            //unindentified payload
+            sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
+            break;
               break; 
-
+            break;
+              break; 
+            break;
 
     }
 
-    console.log("Received postback for user %d and page %d with payload %d " +
+    console.log("Received postback for user %d and page %d with payload '%s' " +
         "at %d", senderID, recipientID, payload, timeOfPostback);
 
 }
@@ -884,5 +889,4 @@ function isDefined(obj) {
 // Spin up the server
 app.listen(app.get('port'), function () {
     console.log('running on port', app.get('port'))
-}
-)
+})
