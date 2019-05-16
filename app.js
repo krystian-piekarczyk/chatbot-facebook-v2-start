@@ -10,7 +10,7 @@ const app = express();
 const uuid = require('uuid');
 
 
-// Messenger API parameters
+// Messenger API parameters/ Sprawdzenie tokenów //
 if (!config.FB_PAGE_TOKEN) {
     throw new Error('missing FB_PAGE_TOKEN');
 }
@@ -40,7 +40,7 @@ if (!config.SERVER_URL) { //used for ink to static files
 
 app.set('port', (process.env.PORT || 5000))
 
-//verify request came from facebook
+//verify request came from facebook 
 app.use(bodyParser.json({
     verify: verifyRequestSignature
 }));
@@ -59,7 +59,7 @@ app.use(bodyParser.json());
 
 
 
-
+// dialogFlow client
 
 const credentials = {
     client_email: config.GOOGLE_CLIENT_EMAIL,
@@ -76,9 +76,9 @@ const sessionClient = new dialogflow.SessionsClient(
 
 const sessionIds = new Map();
 
-// Index route
+// Index route 
 app.get('/', function (req, res) {
-    res.send('Hello world, I am a chat bot')
+    res.send('Hello world, I am King-Messenger a chat bot')
 })
 
 // for Facebook verification
@@ -202,37 +202,13 @@ function handleEcho(messageId, appId, metadata) {
     console.log("Received echo for message %s and app %d with metadata %s", messageId, appId, metadata);
 }
 
-function handleDialogFlowAction(sender, action, messages,) {
+function handleDialogFlowAction(sender, action, messages, contexts, parameters) {
     switch (action) {
-
-        case "Adres_miejsca":
-            if (isDefined(contexts[0]) &&
-                (contexts[0].name.includes('Adres_type - next') || contexts[0].name.includes('Contex_adres_miejsca'))
-                && contexts[0].parameters) {
-                let phone_number = (isDefined(contexts[0].parameters.fields['geo-city'])
-                    && contexts[0].parameters.fields['geo-city'] != '') ? contexts[0].parameters.fields['geo-city'].stringValue : '';
-               // let user_name = (isDefined(contexts[0].parameters.fields['user-name'])
-                //    && contexts[0].parameters.fields['user-name'] != '') ? contexts[0].parameters.fields['user-name'].stringValue : ''
-               // let job_vacancy = (isDefined(contexts[0].parameters.fields['job-vacancy'])
-                //    && contexts[0].parameters.fields['job-vacancy'] != '') ? contexts[0].parameters.fields['job-vacancy'].stringValue : '';
-                if (phone_number != '') {
-
-                  //  let emailContent = 'A new job enquiery from ' + user_name + ' for the job: ' + job_vacancy +
-                  //      '.<br> Previous job position: ' + previous_job + '.' +
-                  //      '.<br> Years of experience: ' + years_of_experience + '.' +
-                  //      '.<br> Phone number: ' + phone_number + '.';
-
-                  //  sendEmail('New job application', emailContent);
-
-                    handleMessages(messages, sender);
-                } else {
-                    handleMessages(messages, sender);
-                }
-            }
-
         case "facebook_location":
             //dialogflow action facebook_location
             handleMessages(messages, sender);
+
+            
             sendTypingOn(sender);
 
             setTimeout(function() {
@@ -242,21 +218,18 @@ function handleDialogFlowAction(sender, action, messages,) {
 
                     {
                         type:"web_url",
-                         url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&address=Katowice",
+                         url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot ",
                          title:"Lokalizacja",
-                         webview_height_ratio: "tall"
+                         webview_height_ratio: "full"
                     }
                 ];
-                sendButtonMessage(sender, "Aby użyć lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
+                sendButtonMessage(sender, "Lokalizacja", buttons);
     }, 3000)
 
-        
-        default:
-            //unhandled action, just send back the text
-            handleMessages(messages, sender);
-    }
-}
 
+            break;
+}
+}
 
 function handleMessage(message, sender) {
     switch (message.message) {
@@ -763,14 +736,10 @@ function receivedPostback(event) {
     var payload = event.postback.payload;
 
     switch (payload) {
-        default:
-            //unindentified payload
-            sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
-            break;
+        default :
+
               break; 
-            break;
-              break; 
-            break;
+
 
     }
 
@@ -915,4 +884,5 @@ function isDefined(obj) {
 // Spin up the server
 app.listen(app.get('port'), function () {
     console.log('running on port', app.get('port'))
-})
+}
+)
