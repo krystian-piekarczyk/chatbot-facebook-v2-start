@@ -204,6 +204,32 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleDialogFlowAction(sender, action, messages,) {
     switch (action) {
+
+        case "Adres_miejsca":
+            if (isDefined(contexts[0]) &&
+                (contexts[0].name.includes('Adres_type - next') || contexts[0].name.includes('Contex_adres_miejsca'))
+                && contexts[0].parameters) {
+                let phone_number = (isDefined(contexts[0].parameters.fields['geo-city'])
+                    && contexts[0].parameters.fields['geo-city'] != '') ? contexts[0].parameters.fields['geo-city'].stringValue : '';
+               // let user_name = (isDefined(contexts[0].parameters.fields['user-name'])
+                //    && contexts[0].parameters.fields['user-name'] != '') ? contexts[0].parameters.fields['user-name'].stringValue : ''
+               // let job_vacancy = (isDefined(contexts[0].parameters.fields['job-vacancy'])
+                //    && contexts[0].parameters.fields['job-vacancy'] != '') ? contexts[0].parameters.fields['job-vacancy'].stringValue : '';
+                if (phone_number != '') {
+
+                  //  let emailContent = 'A new job enquiery from ' + user_name + ' for the job: ' + job_vacancy +
+                  //      '.<br> Previous job position: ' + previous_job + '.' +
+                  //      '.<br> Years of experience: ' + years_of_experience + '.' +
+                  //      '.<br> Phone number: ' + phone_number + '.';
+
+                  //  sendEmail('New job application', emailContent);
+
+                    handleMessages(messages, sender);
+                } else {
+                    handleMessages(messages, sender);
+                }
+            }
+
         case "facebook_location":
             //dialogflow action facebook_location
             handleMessages(messages, sender);
