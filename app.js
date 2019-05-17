@@ -207,7 +207,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
         case "Facebook_Location":
         //dialogflow action Facebook
-        handleMessages(messages,sender,location);
+        handleMessages(messages,sender);
 
         sendTypingOn(sender);
 
