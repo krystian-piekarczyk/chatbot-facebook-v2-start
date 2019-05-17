@@ -202,7 +202,7 @@ function handleEcho(messageId, appId, metadata) {
     console.log("Received echo for message %s and app %d with metadata %s", messageId, appId, metadata);
 }
 
-function handleDialogFlowAction(sender, action, messages, contexts, parameters) {
+function handleDialogFlowAction(sender, action, messages, contexts, parameters,quickReplies) {
     switch (action) {
 
         case "Facebook_Location": //quick replies
