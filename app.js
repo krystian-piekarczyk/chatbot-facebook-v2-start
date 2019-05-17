@@ -205,7 +205,7 @@ function handleEcho(messageId, appId, metadata) {
 function handleDialogFlowAction(sender, action, messages, contexts, parameters) {
     switch (action) {
 
-        case "quickReplies": //quick replies
+        case "Facebook_Location": //quick replies
         let replies = [];
         message.quickReplies.quickReplies.forEach((location) => {
             let reply =
