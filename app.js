@@ -218,18 +218,16 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
                 {
                     type:"web_url",
-                    url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&fbclid=IwAR2BNOGswQeMklCnbDvBq2J4Y-ncvAt6wAcQP35jpQQk6DX9rAOs7_BuNXY&address=Sokolska%2034,%2040-086%20Katowice",
+                    url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&address=Katowice",
                     title:"Lokalizacja",
-                    webview_height_ratio:"full",
-                }
-            ];
-
-            sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzębuję twojej zgody na jej udostępnienie, klikając przycisk poniżej zadzasz na udostępnie")
-
+                    webview_height_ratio: "tall"
+               }
+           ];
+           sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
 
         }, 1000)
 
-
+            break;
 
 
         default:
