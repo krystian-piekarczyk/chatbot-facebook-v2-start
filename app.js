@@ -210,9 +210,9 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters,q
         message.quickReplies.quickReplies.forEach((location) => {
             let reply =
                 {
-                    "content_type": "location",
-                    "title": location,
-                    "payload": location
+                    content_type: "location",
+                    title: "location",
+                    payload: "location"
                 }
             replies.push(reply);
         });
