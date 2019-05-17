@@ -204,6 +204,34 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleDialogFlowAction(sender, action, messages, contexts, parameters) {
     switch (action) {
+
+        case "Facebook_Location":
+        //dialogflow action Facebook
+        handleMessages(messages,sender,location);
+
+        sendTypingOn(sender);
+
+        setTimeout(function() {
+
+
+            let buttons = [
+
+                {
+                    type:"web_url",
+                    url:"https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&fbclid=IwAR2BNOGswQeMklCnbDvBq2J4Y-ncvAt6wAcQP35jpQQk6DX9rAOs7_BuNXY&address=Sokolska%2034,%2040-086%20Katowice",
+                    title:"Lokalizacja",
+                    webview_height_ratio:"full",
+                }
+            ];
+
+            sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzębuję twojej zgody na jej udostępnienie, klikając przycisk poniżej zadzasz na udostępnie")
+
+
+        }, 1000)
+
+
+
+
         default:
             //unhandled action, just send back the text
             handleMessages(messages, sender);
