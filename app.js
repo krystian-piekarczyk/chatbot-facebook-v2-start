@@ -204,8 +204,16 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleDialogFlowAction(sender, action, messages, contexts, parameters,quickReplies) {
     switch (action) {
+        
+       case "Adres miejsca":
+            if ( parameters.fields['geo-city'].stringValue!='') {
+                //https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial  to orginalny adres 
+             //uzupełnianie danych mapy w dane które wpisał użytkownik np. sokosl,katowice
+            //https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&address=Sokolska%2C%20Katowice
+            //
 
-       
+
+                }
 
 
 
@@ -229,8 +237,8 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters,q
                     webview_height_ratio: "tall"
                }
            ];
-           sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
-
+           sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons );
+           // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
         }, 1000)
 
             break;
