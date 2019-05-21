@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 const uuid = require('uuid');
-
+const fbService = require('./services/fb-service');
 
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
@@ -113,24 +113,29 @@ app.post('/webhook/', function (req, res) {
             var pageID = pageEntry.id;
             var timeOfEvent = pageEntry.time;
 
-            // Iterate over each messaging event
-            pageEntry.messaging.forEach(function (messagingEvent) {
-                if (messagingEvent.optin) {
-                    receivedAuthentication(messagingEvent);
-                } else if (messagingEvent.message) {
-                    receivedMessage(messagingEvent);
-                } else if (messagingEvent.delivery) {
-                    receivedDeliveryConfirmation(messagingEvent);
-                } else if (messagingEvent.postback) {
-                    receivedPostback(messagingEvent);
-                } else if (messagingEvent.read) {
-                    receivedMessageRead(messagingEvent);
-                } else if (messagingEvent.account_linking) {
-                    receivedAccountLink(messagingEvent);
-                } else {
-                    console.log("Webhook received unknown messagingEvent: ", messagingEvent);
-                }
-            });
+            // Bot is in control - listen for messages
+            if (pageEntry.messaging) {
+                // Iterate over each messaging event
+                pageEntry.messaging.forEach(function (messagingEvent) {
+                    if (messagingEvent.optin) {
+                        fbService.receivedAuthentication(messagingEvent);
+                    } else if (messagingEvent.message) {
+                        receivedMessage(messagingEvent);
+                    } else if (messagingEvent.delivery) {
+                        fbService.receivedDeliveryConfirmation(messagingEvent);
+                    } else if (messagingEvent.postback) {
+                        receivedPostback(messagingEvent);
+                    } else if (messagingEvent.read) {
+                        fbService.receivedMessageRead(messagingEvent);
+                    } else if (messagingEvent.account_linking) {
+                        fbService.receivedAccountLink(messagingEvent);
+                    } else if (messagingEvent.pass_thread_control) {
+                        // do something with the metadata: messagingEvent.pass_thread_control.metadata
+                    } else {
+                        console.log("Webhook received unknown messagingEvent: ", messagingEvent);
+                    }
+                });
+            }
         });
 
         // Assume all went well.
@@ -167,20 +172,20 @@ function receivedMessage(event) {
     var quickReply = message.quick_reply;
 
     if (isEcho) {
-        handleEcho(messageId, appId, metadata);
-        return;
-    } else if (quickReply) {
+        fbService.handleEcho(messageId, appId, metadata);
+		return;
+	} else if (quickReply) {
         handleQuickReply(senderID, quickReply, messageId);
-        return;
-    }
+		return;
+	}
 
 
-    if (messageText) {
-        //send message to api.ai
-        sendToDialogFlow(senderID, messageText);
-    } else if (messageAttachments) {
-        handleMessageAttachments(messageAttachments, senderID);
-    }
+	if (messageText) {
+		//send message to DialogFlow
+        dialogflowService.sendTextQueryToDialogFlow(sessionIds, handleDialogFlowResponse, senderID, messageText);
+	} else if (messageAttachments) {
+        fbService.handleMessageAttachments(messageAttachments, senderID);
+	}
 }
 
 
