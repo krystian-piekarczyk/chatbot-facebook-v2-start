@@ -204,7 +204,7 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleDialogFlowAction(sender, action, messages, contexts, parameters, quickReplies) {
     switch (action) {
-        case "Adres_miejsca":
+        case "Adres_type.Adres_type-next":
         if (fbService.isDefined(contexts[0]) &&
                 (contexts[0].name.includes('Adres_type-followup') || contexts[0].name.includes('Adres_type.Adres_type-next'))
                 && contexts[0].parameters) {
@@ -221,7 +221,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters, 
 
 
 
-        case "Adres_miejsca":
+        case "Adres_type.Adres_type-next":
             if (parameters.fields['geo-city'].stringValue != '') {
                 sendTypingOn(sender);
 
