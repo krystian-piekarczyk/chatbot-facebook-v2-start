@@ -206,7 +206,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters, 
     switch (action) {
         case "Adres_miejsca":
         if (fbService.isDefined(contexts[0]) &&
-                (contexts[0].name.includes('Contex_adres_miejsca') || contexts[0].name.includes('Contex_adres_miejsca'))
+                (contexts[0].name.includes('Adres_type-followup') || contexts[0].name.includes('Adres_type.Adres_type-next'))
                 && contexts[0].parameters) {
                     let geo_city = (fbService.isDefined(contexts[0].parameters.fields['geo-city'])
                     && contexts[0].parameters.fields['geo-city'] != '') ? contexts[0].parameters.fields['geo-city'].stringValue : '';
