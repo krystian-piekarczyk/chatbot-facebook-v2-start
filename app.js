@@ -254,7 +254,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                 let buttons = [
                     {
                         type: "web_url",
-                        url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&address=Katowice",
+                        url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial",
                         title: "Lokalizacja",
                         webview_height_ratio: "tall"
                     }
