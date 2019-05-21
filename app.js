@@ -206,6 +206,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
     switch (action) {
 
         case "Adres_type.Adres_type-next":
+        console.log(contexts[0])
         if (isDefined(contexts[0]) &&
                 (contexts[0].name.includes('Adres_type-followup') || contexts[0].name.includes('Adres_type-followup'))
                 && contexts[0].parameters) {
@@ -246,6 +247,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
             break;
         case "Facebook_Location":
             //handleMessages(messages, sender);
+            console.log("Jestem w case facebook location")
             sendTypingOn(sender);
             setTimeout(function () {
                 let buttons = [
