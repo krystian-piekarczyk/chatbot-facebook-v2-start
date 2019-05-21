@@ -204,6 +204,7 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleDialogFlowAction(sender, action, messages, contexts, parameters) {
     switch (action) {
+
         case "Adres_type.Adres_type-next":
         if (isDefined(contexts[0]) &&
                 (contexts[0].name.includes('Adres_type-followup') || contexts[0].name.includes('Adres_type-followup'))
@@ -223,7 +224,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
 
-        case "Adres_type.Adres_type-next":
+        case "Adres_type.Adres_type-nex":
             if (parameters.fields['geo-city'].stringValue != '') {
                 sendTypingOn(sender);
 
