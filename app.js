@@ -205,6 +205,23 @@ function handleEcho(messageId, appId, metadata) {
 function handleDialogFlowAction(sender, action, messages, contexts, parameters, quickReplies) {
     switch (action) {
         case "Adres_miejsca":
+        if (fbService.isDefined(contexts[0]) &&
+                (contexts[0].name.includes('Contex_adres_miejsca') || contexts[0].name.includes('Contex_adres_miejsca'))
+                && contexts[0].parameters) {
+                    let geo_city = (fbService.isDefined(contexts[0].parameters.fields['geo-city'])
+                    && contexts[0].parameters.fields['geo-city'] != '') ? contexts[0].parameters.fields['geo-city'].stringValue : '';
+                
+                    
+
+                
+            }
+                break;
+
+
+
+
+
+        case "Adres_miejsca":
             if (parameters.fields['geo-city'].stringValue != '') {
                 sendTypingOn(sender);
 
