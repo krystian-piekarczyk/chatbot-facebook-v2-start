@@ -235,11 +235,11 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         {
                             type: "web_url",
                             url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&address=" + parameters.fields['geo-city'].stringValue,
-                            title: "Lokalizacja",
-                            webview_height_ratio: "tall"
+                            title: "Mapa",
+                            webview_height_ratio: "Full"
                         }
                     ];
-                    sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
+                    sendButtonMessage(sender, "Klikając przycisk poniżej otworzysz mapę", buttons);
                     // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
                 }, 1000)
 
@@ -256,7 +256,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         type: "web_url",
                         url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial",
                         title: "Lokalizacja",
-                        webview_height_ratio: "tall"
+                        webview_height_ratio: "full"
                     }
                 ];
                 sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
