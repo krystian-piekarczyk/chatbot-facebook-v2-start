@@ -224,7 +224,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
 
-        case "Adres_type.Adres_type-nex":
+        case "Adres_type.Adres_type-next":
             if (parameters.fields['geo-city'].stringValue != '') {
                 sendTypingOn(sender);
 
