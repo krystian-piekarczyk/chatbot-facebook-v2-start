@@ -205,27 +205,28 @@ function handleEcho(messageId, appId, metadata) {
 function handleDialogFlowAction(sender, action, messages, contexts, parameters) {
     switch (action) {
 
-        case "Adres_type.Adres_type-next":
-        console.log(contexts[0])
-        if (isDefined(contexts[0]) &&
-                (contexts[0].name.includes('Adres_type-followup') || contexts[0].name.includes('Adres_type-followup'))
-                && contexts[0].parameters) {
-                let geo_city = (isDefined(contexts[0].parameters.fields['geo-city'])
-                    && contexts[0].parameters.fields['geo-city'] != '') ? contexts[0].parameters.fields['geo-city'].stringValue : '';
+        //case "Adres_type.Adres_type-next":
+        
+        // if (isDefined(contexts[0]) &&
+        //         (contexts[0].name.includes('Adres_type-followup') || contexts[0].name.includes('Adres_type-followup'))
+        //         && contexts[0].parameters) {
+        //         let geo_city = (isDefined(contexts[0].parameters.fields['geo-city'])
+        //             && contexts[0].parameters.fields['geo-city'] != '') ? contexts[0].parameters.fields['geo-city'].stringValue : '';
                     
                     
 
                     
 
                 
-            }
-                break;
+        //     }
+        //         break;
 
 
 
 
 
         case "Adres_type.Adres_type-next":
+        console.log("TUTAJ CONTEXTS" + parameters.fields['geo-city'])
             if (parameters.fields['geo-city'].stringValue != '') {
                 sendTypingOn(sender);
 
