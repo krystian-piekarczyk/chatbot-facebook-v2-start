@@ -235,11 +235,11 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         {
                             type: "web_url",
                             url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&address=" + parameters.fields['geo-city'].stringValue,
-                            title: "Mapa",
+                            title: "Pokaż Mapę",
                             webview_height_ratio: "Full"
                         }
                     ];
-                    sendButtonMessage(sender, "Klikając przycisk poniżej otworzysz mapę", buttons);
+                    sendButtonMessage(sender, "Klikając przycisk poniżej otworzysz mapę:", buttons);
                     // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
                 }, 1000)
 
