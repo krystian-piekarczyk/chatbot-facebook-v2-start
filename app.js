@@ -277,7 +277,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                 }
             replies.push(reply);
         console.log("replies" + replies);
-        sendQuickReply(sender, "", replies);
+        sendQuickReply(sender, "cos", replies);
         break;
 
        
