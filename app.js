@@ -198,6 +198,9 @@ function handleQuickReply(senderID, quickReply, messageId) {
 
 //https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-echo
 function handleEcho(messageId, appId, metadata) {
+
+
+    
     // Just logging message echoes to console
     console.log("Received echo for message %s and app %d with metadata %s", messageId, appId, metadata);
 }
@@ -250,12 +253,13 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
         case "Facebook_Location": //quick replies
         console.log("TUTAJ CONTEXTS")
             let replies = [];
-            message.quickReplies.quickReplies.forEach((text) => {
+             message.quickReplies.quickReplies.forEach((text) => {
+                let responseText = "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie";
                 let reply =
                     {
                         content_type: "location",
                         title: "Udostępnij Lokalizację",
-                        payload: text
+                        payload: "Facebook_Location"
                     }
                 replies.push(reply);
             });
@@ -296,7 +300,6 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
       
     }
-
 
 function handleMessage(message, sender) {
     switch (message.message) {
