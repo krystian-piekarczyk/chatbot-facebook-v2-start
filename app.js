@@ -270,7 +270,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
         case "Facebook_Location":
         let replies = [];
-        message.quickReplies.quickReplies.forEach((text) => {
+        message.quickReplies.quickReplies.forEach((location) => {
             let reply =
                 {
                     content_type : "location",
