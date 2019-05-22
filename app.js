@@ -248,6 +248,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
             break;
 
         case "Facebook_Location": //quick replies
+        console.log("TUTAJ CONTEXTS")
             let replies = [];
             message.quickReplies.quickReplies.forEach((text) => {
                 let reply =
