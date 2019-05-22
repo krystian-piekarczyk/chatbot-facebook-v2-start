@@ -280,7 +280,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                 "payload":"Lokalizacja"
             }
         ];
-                sendQuickReply(sender, messages[0].text.text[0], replies);
+              //  sendQuickReply(sender, messages[0].text.text[0], replies);
                // sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie");
                 // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
             }, 1000)
