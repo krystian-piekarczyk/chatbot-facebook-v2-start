@@ -409,7 +409,7 @@ function handleDialogFlowResponse(sender, response) {
     let parameters = response.parameters;
 
     sendTypingOff(sender);
-
+    console.log("action: " + action + "; messages: " + messages + "responseText: "+ responseText);
     if (isDefined(action)) {
         handleDialogFlowAction(sender, action, messages, contexts, parameters);
     } else if (isDefined(messages)) {
