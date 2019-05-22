@@ -275,7 +275,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                 {
                     content_type : "location",
                     title : "Lokalizacja",
-                    payload : "quickReplies"
+                    payload : "facebook_location"
                 }
             ]
             replies.push(reply);
