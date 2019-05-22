@@ -274,8 +274,8 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
             let reply =
                 {
                     "content_type": "location",
-                    "title": Lokalizacja,
-                    "payload": quickReplies
+                    "title": "Lokalizacja",
+                    "payload": "quickReplies"
                 }
             replies.push(reply);
         });
