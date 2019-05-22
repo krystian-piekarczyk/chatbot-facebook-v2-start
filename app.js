@@ -230,7 +230,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
         case "Adres_type.Adres_type-next":
-        console.log("TUTAJ CONTEXTS" + parameters.fields['geo-city'] + "Nazwa ulicy" + parameters.fields['nazwa_ulicy'] + "typ_miejsca" + parameters.fields['typ_miejsca'])
+        console.log("TUTAJ CONTEXTS" + parameters.fields['geo-city'] + "Nazwa ulicy" + parameters.fields['nazwa_ulicy'])
         if (parameters.fields['geo-city'].stringValue != '') {
             sendTypingOn(sender);
 
