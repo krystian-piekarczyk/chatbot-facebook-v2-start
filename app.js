@@ -275,9 +275,9 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
             setTimeout(function () {
                 let replies = [
             {
-                content_type:"location",
-                title:"Lokalizacja",
-                payload:"Lokalizacja"
+                "content_type":"location",
+                "title":"Lokalizacja",
+                "payload":"Lokalizacja"
             }
         ];
                 sendQuickReply(sender, messages[0].text.text[0], replies);
