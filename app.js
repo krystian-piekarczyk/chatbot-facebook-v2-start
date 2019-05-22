@@ -245,7 +245,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     ];
                     sendButtonMessage(sender, "Klikając przycisk poniżej otworzysz mapę:", buttons);
                     // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
-                }, 1000)
+                }, 50)
 
 
             }
