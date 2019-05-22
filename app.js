@@ -231,8 +231,8 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
         case "Adres_type.Adres_type-next":
         console.log("TUTAJ CONTEXTS" + parameters.fields['geo-city'] + "Nazwa ulicy" + parameters.fields['nazwa_ulicy'])
-            if (parameters.fields['geo-city'].stringValue != '') {
-                if (parameters.fields['type_miejsca'].stringValue == '') {
+            if (parameters.fields['geo-city'] != undefined) {
+                if (parameters.fields['type_miejsca'] == undefined) {
                     parameters.fields['type_miejsca'].stringValue = 'oddzial';
                 }
 
