@@ -273,9 +273,9 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
         message.quickReplies.quickReplies.forEach((text) => {
             let reply =
                 {
-                    "content_type": "location",
-                    "title": "Lokalizacja",
-                    "payload": "quickReplies"
+                    content_type : "location",
+                    title : "Lokalizacja",
+                    payload : "quickReplies"
                 }
             replies.push(reply);
         });
