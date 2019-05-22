@@ -206,6 +206,7 @@ function handleEcho(messageId, appId, metadata) {
 }
 
 function handleDialogFlowAction(sender, action, messages, contexts, parameters) {
+    console.log("Current Action: " + action)
     switch (action) {
 
         //case "Adres_type.Adres_type-next":
