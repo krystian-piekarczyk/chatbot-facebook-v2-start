@@ -246,23 +246,40 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
             }
             break;
-        case "Facebook_Location":
-            //handleMessages(messages, sender);
-            console.log("Jestem w case facebook location")
-            sendTypingOn(sender);
-            setTimeout(function () {
-                let buttons = [
+
+        case "Facebook_Location": //quick replies
+            let replies = [];
+            message.quickReplies.quickReplies.forEach((text) => {
+                let reply =
                     {
-                        type: "web_url",
-                        url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial",
-                        title: "Lokalizacja",
-                        webview_height_ratio: "full"
+                        content_type: "location",
+                        title: "Udostępnij Lokalizację",
+                        payload: text
                     }
-                ];
-                sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
-                // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
-            }, 1000)
-            break;
+                replies.push(reply);
+            });
+            sendQuickReply(sender, message.quickReplies.title, replies);
+            break;    
+
+
+
+        // case "Facebook_Location":
+        //     //handleMessages(messages, sender);
+        //     console.log("Jestem w case facebook location")
+        //     sendTypingOn(sender);
+        //     setTimeout(function () {
+        //         let buttons = [
+        //             {
+        //                 type: "web_url",
+        //                 url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial",
+        //                 title: "Lokalizacja",
+        //                 webview_height_ratio: "full"
+        //             }
+        //         ];
+        //         sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
+        //         // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
+        //     }, 1000)
+        //     break;
         default:
             //unhandled action, just send back the text
             handleMessages(messages, sender);
