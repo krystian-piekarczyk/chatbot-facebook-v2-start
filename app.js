@@ -269,21 +269,18 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
         case "Facebook_Location":
-            //handleMessages(messages, sender);
-            console.log("Jestem w case facebook location")
-            sendTypingOn(sender);
-            setTimeout(function () {
-                let replies = [
-            {
-                "content_type":"location",
-                "title":"Lokalizacja",
-                "payload":"Lokalizacja"
-            }
-        ];
-              //  sendQuickReply(sender, messages[0].text.text[0], replies);
-               // sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie");
-                // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
-            }, 1000)
+        let replies = [];
+        message.quickReplies.quickReplies.forEach((text) => {
+            let reply =
+                {
+                    "content_type": "location",
+                    "title": Lokalizacja,
+                    "payload": quickReplies
+                }
+            replies.push(reply);
+        });
+        sendQuickReply(sender, message.quickReplies.title, replies);
+        break;
             break;
         default:
             //unhandled action, just send back the text
