@@ -185,7 +185,7 @@ function receivedMessage(event) {
 
 
 function handleMessageAttachments(messageAttachments, senderID){
-    //for now just reply
+    //for now just reply/ Udostępnienie lokalizacji 
     sendTextMessage(senderID, "Attachment received. Thank you.");
 }
 
@@ -230,8 +230,10 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
         case "Adres_type.Adres_type-next":
-        console.log("TUTAJ CONTEXTS" + parameters.fields['geo-city'])
+        console.log("TUTAJ CONTEXTS" + parameters.fields['geo-city'] + "Nazwa ulicy" + parameters.fields['nazwa_ulicy'])
             if (parameters.fields['geo-city'].stringValue != '') {
+
+
                 sendTypingOn(sender);
 
                 setTimeout(function () {
@@ -243,6 +245,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                             webview_height_ratio: "Full"
                         }
                     ];
+                    console.log("https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial&address=" + parameters.fields['geo-city'].stringValue);
                     sendButtonMessage(sender, "Klikając przycisk poniżej otworzysz mapę:", buttons);
                     // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
                 }, 1000)
