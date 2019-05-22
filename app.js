@@ -269,16 +269,17 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
         case "Facebook_Location":
-        let replies = [];
-        message.quickReplies.quickReplies.forEach((_location) => {
-            let replies =
+        // let replies = [];
+        // message.quickReplies.quickReplies.forEach((_location) => {
+             let replies = [
                 {
                     content_type : "location",
                     title : "Lokalizacja",
                     payload : "quickReplies"
                 }
+            ]
             replies.push(reply);
-        });
+            ;
         sendQuickReply(sender, message.quickReplies.title, replies);
         break;
 
