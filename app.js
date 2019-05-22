@@ -259,7 +259,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     {
                         content_type: "location",
                         title: "Udostępnij Lokalizację",
-                        payload: "Facebook_Location"
+                        payload: "Aktualna_lokalizacja"
                     }
                 replies.push(reply);
             });
