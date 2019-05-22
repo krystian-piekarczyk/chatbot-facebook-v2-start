@@ -250,41 +250,41 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
             }
             break;
 
-        case "Facebook_Location": //quick replies
-        console.log("TUTAJ CONTEXTS")
-            let replies = [];
-             message.quickReplies.quickReplies.forEach((text) => {
-                let responseText = "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie";
-                let reply =
-                    {
-                        content_type: "location",
-                        title: "Udostępnij Lokalizację",
-                        payload: "Aktualna_lokalizacja"
-                    }
-                replies.push(reply);
-            });
-            sendQuickReply(sender, message.quickReplies.title, replies);
-            break;    
-
-
-
-        // case "Facebook_Location":
-        //     //handleMessages(messages, sender);
-        //     console.log("Jestem w case facebook location")
-        //     sendTypingOn(sender);
-        //     setTimeout(function () {
-        //         let buttons = [
+        // case "Facebook_Location": //quick replies
+        // console.log("TUTAJ CONTEXTS")
+        //     let replies = [];
+        //      message.quickReplies.quickReplies.forEach((text) => {
+        //         let responseText = "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie";
+        //         let reply =
         //             {
-        //                 type: "web_url",
-        //                 url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=oddzial",
-        //                 title: "Lokalizacja",
-        //                 webview_height_ratio: "full"
+        //                 content_type: "location",
+        //                 title: "Udostępnij Lokalizację",
+        //                 payload: "Aktualna_lokalizacja"
         //             }
-        //         ];
-        //         sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
-        //         // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
-        //     }, 1000)
-        //     break;
+        //         replies.push(reply);
+        //     });
+        //     sendQuickReply(sender, message.quickReplies.title, replies);
+        //     break;    
+
+
+
+        case "Facebook_Location":
+            //handleMessages(messages, sender);
+            console.log("Jestem w case facebook location")
+            sendTypingOn(sender);
+            setTimeout(function () {
+                let replies = [
+            {
+                content_type:"location",
+                title:"Lokalizacja",
+                payload:"Lokalizacja"
+            }
+        ];
+        fbService.sendQuickReply(sender, messages[0].text.text[0], replies);
+                sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie");
+                // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
+            }, 1000)
+            break;
         default:
             //unhandled action, just send back the text
             handleMessages(messages, sender);
