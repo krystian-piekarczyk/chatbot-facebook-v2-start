@@ -277,7 +277,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                 }
             replies.push(reply);
         console.log("replies" + replies);
-        sendQuickReply(sender, "cos", replies);
+        sendQuickReply(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", replies);
         break;
 
        
