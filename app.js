@@ -270,14 +270,17 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
         case "Facebook_Location":
          let replies = [];
+         console.log("Hello!")
          messages.quickReplies.quickReplies.forEach((text) => {
-             let reply = {
+            console.log("text inside:" + text) 
+            let reply = {
                     content_type : "text",
                     title : text,
                     payload : text
                 }
             replies.push(reply);
             });
+        console.log("replies" + replies);
         sendQuickReply(sender, message.quickReplies.title, replies);
         break;
 
