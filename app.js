@@ -281,7 +281,8 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
         });
         sendQuickReply(sender, message.quickReplies.title, replies);
         break;
-            break;
+
+       
         default:
             //unhandled action, just send back the text
             handleMessages(messages, sender);
