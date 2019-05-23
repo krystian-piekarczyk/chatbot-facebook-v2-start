@@ -238,7 +238,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     let buttons = [
                         {
                             type: "web_url",
-                            url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=bank&address=" + parameters.fields['nazwa-ulicy'].stringValue + "%20" + parameters.fields['geo-city'].stringValue,
+                            url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type="+ parameters.fields['typ-miejca-nazwa'].stringValue +"&address=" + parameters.fields['nazwa-ulicy'].stringValue + "%20" + parameters.fields['geo-city'].stringValue,
                             title: "Pokaż Mapę",
                             webview_height_ratio: "Full"
                         }
@@ -401,7 +401,7 @@ function handleDialogFlowResponse(sender, response) {
     let messages = response.fulfillmentMessages;
     let action = response.action;
     let contexts = response.outputContexts;
-    let parameters = response.parameters;
+    let parameters = response.outputContexts.parameters;
 
     sendTypingOff(sender);
     console.log("action: " + action + "; messages: " + messages + "responseText: "+ responseText);
