@@ -402,7 +402,7 @@ function handleDialogFlowResponse(sender, response) {
     let action = response.action;
     let contexts = response.outputContexts;
     let parameters = response.parameters;
-    console.log("HEaaaaa" + response.stringify());
+    console.log("HEaaaaa" + JSON.stringify(response));
     sendTypingOff(sender);
     console.log("action: " + action + "; messages: " + messages + "responseText: "+ responseText);
     if (isDefined(action)) {
