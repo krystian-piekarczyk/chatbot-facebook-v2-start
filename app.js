@@ -239,7 +239,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         {
                             // parameters.fields['typ-miejca-nazwa'].stringValue 
                             type: "web_url",
-                            url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=bankomat"+"&address=" + parameters.fields['nazwa-ulicy'].stringValue + "%20" + parameters.fields['geo-city'].stringValue,
+                            url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type="+ parameters.fields['typ-miejsca-nazwa'].stringValue+"&address=" + parameters.fields['nazwa-ulicy'].stringValue + "%20" + parameters.fields['geo-city'].stringValue,
                             title: "Pokaż Mapę",
                             webview_height_ratio: "Full"
                         }
