@@ -230,7 +230,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
         case "Adres_type.Adres_type-next":
-        console.log("TUTAJ CONTEXTS" + parameters.fields['geo-city'].stringValue + "Nazwa ulicy" + parameters.fields['nazwa-ulicy'].stringValue)
+        console.log("TUTAJ CONTEXTS" + parameters.fields['geo-city'].stringValue + "Nazwa ulicy" + parameters.fields['nazwa-ulicy-nazwa'].stringValue)
         if (parameters.fields['geo-city'].stringValue != '') {
             sendTypingOn(sender);
 
@@ -239,7 +239,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         {
                             // parameters.fields['typ-miejca-nazwa'].stringValue 
                             type: "web_url",
-                            url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=wpłatomat" + "&address=" + parameters.fields['nazwa-ulicy'].stringValue + "%20" + parameters.fields['geo-city'].stringValue,
+                            url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=wpłatomat" + "&address=" + parameters.fields['nazwa-ulicy-nazwa'].stringValue + "%20" + parameters.fields['geo-city'].stringValue,
                             title: "Pokaż Mapę",
                             webview_height_ratio: "Full"
                         }
