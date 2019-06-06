@@ -251,23 +251,28 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
             }
             break;
+            case "faq-delivery":
 
-        // case "Facebook_Location": //quick replies
-        // console.log("TUTAJ CONTEXTS")
-        //     let replies = [];
-        //      message.quickReplies.quickReplies.forEach((text) => {
-        //         let responseText = "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie";
-        //         let reply =
-        //             {
-        //                 content_type: "location",
-        //                 title: "Udostępnij Lokalizację",
-        //                 payload: "Aktualna_lokalizacja"
-        //             }
-        //         replies.push(reply);
-        //     });
-        //     sendQuickReply(sender, message.quickReplies.title, replies);
-        //     break;    
-
+                handleMessages(messages, sender);
+    
+                sendTypingOn(sender);
+    
+                //ask what user wants to do next
+                setTimeout(function() {
+                    let buttons = [
+                      
+                        {
+                            type:"phone_number",
+                            title:"Numer Infolinii to:  ",
+                            payload:"801 222 222",
+                        },
+                     
+                    ];
+    
+                    sendButtonMessage(sender, "What would you like to do next?", buttons);
+                }, 5)
+    
+                break;
 
 
         case "Facebook_Location":
