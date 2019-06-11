@@ -269,7 +269,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                      
                     ];
     
-                    sendButtonMessage(sender, "Numer infolinii to: 801 222 222    , jeżeli chcesz wybrać numer odrazu kliknij przycisk poniżej"
+                    sendButtonMessage(sender, "Numer infolinii to:         801 222 222 , jeżeli chcesz wybrać numer odrazu kliknij przycisk poniżej"
                     , buttons);
                 }, 5)
     
