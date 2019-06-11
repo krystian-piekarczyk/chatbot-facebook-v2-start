@@ -263,7 +263,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                       
                         {
                             type:"phone_number",
-                            title:"Zadzwoń na infolinie",
+                            title:"Zadzwoń",
                             payload:"+48801222222",
                         },
                      
