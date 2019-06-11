@@ -292,7 +292,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         type: "web_url",
                         url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=wpłatomat",
                         title: "Lokalizacja",
-                        webview_height_ratio: "tall"
+                        webview_height_ratio: "full"
                     }
                 ];
                 sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
@@ -317,7 +317,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         type: "web_url",
                         url: "https://spolecznosc.ingbank.pl/",
                         title: "Społeczność",
-                        webview_height_ratio: "tall"
+                        webview_height_ratio: "full"
                     }
                 ];
                 sendButtonMessage(sender, "Poznaj naszą społęczność", buttons);
