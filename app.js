@@ -316,11 +316,11 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         // parameters.fields['typ-miejca-nazwa'].stringValue 
                         type: "web_url",
                         url: "https://spolecznosc.ingbank.pl/",
-                        title: "Społeczność",
+                        title: "Sprawdź tutaj",
                         webview_height_ratio: "full"
                     }
                 ];
-                sendButtonMessage(sender, "Poznaj naszą społęczność", buttons);
+                sendButtonMessage(sender, "Poznaj naszą społeczność od środka:", buttons);
                 // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
             }, 50)
             break
