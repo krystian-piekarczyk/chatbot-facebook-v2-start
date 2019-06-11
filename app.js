@@ -264,7 +264,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         {
                             type:"phone_number",
                             title:"Numer Infolinii to:",
-                            payload:"801 222 222",
+                            payload:"+48801222222",
                         },
                      
                     ];
