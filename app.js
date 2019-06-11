@@ -315,7 +315,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     {
                         // parameters.fields['typ-miejca-nazwa'].stringValue 
                         type: "web_url",
-                        url: "https://www.społeczności.ingbank.pl",
+                        url: "https://spolecznosc.ingbank.pl/",
                         title: "Społeczność",
                         webview_height_ratio: "tall"
                     }
