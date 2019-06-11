@@ -263,13 +263,13 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                       
                         {
                             type:"phone_number",
-                            title:"Numer Infolinii to:",
+                            title:"Zadzwoń na infolinie",
                             payload:"+48801222222",
                         },
                      
                     ];
     
-                    sendButtonMessage(sender, "What would you like to do next?", buttons);
+                    sendButtonMessage(sender, "Numer infolinii to: 801 222 222, jeżeli chcesz wybrać numer odrazu kliknij przycisk poniżej", buttons);
                 }, 5)
     
                 break;
