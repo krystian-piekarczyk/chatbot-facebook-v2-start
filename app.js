@@ -277,15 +277,38 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
 
         case "Facebook_Location":
-         let replies = [];
-         console.log("Hello!")
-            let reply = {
-                    content_type : "location"
-                }
-            replies.push(reply);
-        console.log("replies" + replies);
-        sendQuickReply(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", replies);
-        break;
+
+                
+                handleMessages(messages, sender);
+    
+                sendTypingOn(sender);
+    
+                //ask what user wants to do next
+                setTimeout(function() {
+
+                let buttons = [
+                    {
+                        // parameters.fields['typ-miejca-nazwa'].stringValue 
+                        type: "web_url",
+                        url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=wpłatomat",
+                        title: "Lokalizacja",
+                        webview_height_ratio: "Full"
+                    }
+                ];
+                sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
+                // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
+            }, 50)
+            break
+
+        //  let replies = [];
+        //  console.log("Hello!")
+        //     let reply = {
+        //             content_type : "location"
+        //         }
+        //     replies.push(reply);
+        // console.log("replies" + replies);
+        // sendQuickReply(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", replies);
+        // break;
 
        
         default:
