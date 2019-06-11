@@ -251,7 +251,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
             }
             break;
-            case "faq-delivery":
+            case "Informacje_Ogolne.Informacje_Numer_Infolinii":
 
                 handleMessages(messages, sender);
     
@@ -263,7 +263,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                       
                         {
                             type:"phone_number",
-                            title:"Numer Infolinii to:  ",
+                            title:"Numer Infolinii to:",
                             payload:"801 222 222",
                         },
                      
