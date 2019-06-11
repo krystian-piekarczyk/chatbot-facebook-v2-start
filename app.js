@@ -300,6 +300,31 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
             }, 50)
             break
 
+
+            case "Informacje_Ogolne.Informacje_Ogolne-Spolecznosc":
+
+                
+                handleMessages(messages, sender);
+    
+                sendTypingOn(sender);
+    
+                //ask what user wants to do next
+                setTimeout(function() {
+
+                let buttons = [
+                    {
+                        // parameters.fields['typ-miejca-nazwa'].stringValue 
+                        type: "web_url",
+                        url: "https://www.społeczności.ingbank.pl",
+                        title: "Społeczność",
+                        webview_height_ratio: "tall"
+                    }
+                ];
+                sendButtonMessage(sender, "Poznaj naszą społęczność", buttons);
+                // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
+            }, 50)
+            break
+
         //  let replies = [];
         //  console.log("Hello!")
         //     let reply = {
