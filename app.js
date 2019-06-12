@@ -326,7 +326,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
             break
 
 
-            case "Produkty_Ogolne":
+            case "Produkty-ogolne.Produkty-Ogolne":
 
                 
                     handleMessages(messages, sender);
@@ -341,16 +341,16 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                               
                         type: "web_url",
                         url: "https://www.ing.pl/",
-                        title: "Sprawdź tutaj",
+                        title: "Oferta",
                         webview_height_ratio: "full"
                         }
                     ];
-                    sendButtonMessage(sender, "Tutaj znajdziesz aktualną ofertę naszych produktów", buttons);
+                    sendButtonMessage(sender, "Klikając poniżej znajdziesz aktualną ofertę naszych produktów", buttons);
                     
                 }, 50)
                 break
 
-                case "Produkty-ogolne.Produkty-Ogolne-Konta":
+                case "Produkty-ogolne.Produkty-Konta":
 
                 
                     handleMessages(messages, sender);
@@ -365,14 +365,158 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                               
                         type: "web_url",
                         url: "https://www.ing.pl/indywidualni/konta-osobiste",
-                        title: "Sprawdź tutaj",
+                        title: "Konta",
                         webview_height_ratio: "full"
                         }
                     ];
-                    sendButtonMessage(sender, "Najświeże informajcę odnośnie konta znajdziesz tutaj ", buttons);
+                    sendButtonMessage(sender, "Najświeże informajcę odnośnie konta znajdziesz klikając poniżej: ", buttons);
                     
                 }, 50)
                 break
+
+                case "Produkty-ogolne.Produkty-Kredyt":
+
+                
+                    handleMessages(messages, sender);
+        
+                    sendTypingOn(sender);
+        
+                    
+                    setTimeout(function() {
+    
+                    let buttons = [
+                        {
+                              
+                        type: "web_url",
+                        url: "https://www.ing.pl/indywidualni/kredyty-i-pozyczki",
+                        title: "Kredyty",
+                        webview_height_ratio: "full"
+                        }
+                    ];
+                    sendButtonMessage(sender, "Najświeże informajcę odnośnie pożyczek znajdziesz klikając poniżej: ", buttons);
+                    
+                }, 50)
+                break
+
+                case "Produkty-ogolne.Produkty-Inwestycje":
+
+                
+                        handleMessages(messages, sender);
+            
+                        sendTypingOn(sender);
+            
+                        
+                        setTimeout(function() {
+        
+                        let buttons = [
+                            {
+                                  
+                            type: "web_url",
+                            url: "https://www.ing.pl/indywidualni/inwestycje-i-oszczednosci",
+                            title: "Inwestycje",
+                            webview_height_ratio: "full"
+                            }
+                        ];
+                        sendButtonMessage(sender, "Najświeże informajcę odnośnie możliwości inwestycji znajdziesz klikając poniżej: ", buttons);
+                        
+                    }, 50)
+                    break
+
+                    case "Produkty-ogolne.Produkty-Platnosci":
+
+                
+                        handleMessages(messages, sender);
+            
+                        sendTypingOn(sender);
+            
+                        
+                        setTimeout(function() {
+        
+                        let buttons = [
+                            {
+                                  
+                            type: "web_url",
+                            url: "https://www.ing.pl/indywidualni/karty",
+                            title: "Karta",
+                            webview_height_ratio: "full"
+                            }
+                        ];
+                        sendButtonMessage(sender, "Najświeże informajcę odnośnie kart oraz płatności znajdziesz klikając poniżej: ", buttons);
+                        
+                    }, 50)
+                    break
+
+                    case "Produkty-ogolne.Produkty-Ubezpieczenia":
+
+                
+                        handleMessages(messages, sender);
+            
+                        sendTypingOn(sender);
+            
+                        
+                        setTimeout(function() {
+        
+                        let buttons = [
+                            {
+                                  
+                            type: "web_url",
+                            url: "https://www.ing.pl/indywidualni/ubezpieczenia",
+                            title: "Ubezpieczenia",
+                            webview_height_ratio: "full"
+                            }
+                        ];
+                        sendButtonMessage(sender, "Najświeże informajcę odnośnie ubezpieczeń znajdziesz klikając poniżej: ", buttons);
+                        
+                    }, 50)
+                    break
+
+                    case "Produkty-ogolne.Produkty-Bankowosc_Mobilna":
+
+                
+                            handleMessages(messages, sender);
+                
+                            sendTypingOn(sender);
+                
+                            
+                            setTimeout(function() {
+            
+                            let buttons = [
+                                {
+                                      
+                                type: "web_url",
+                                url: "https://www.ing.pl/indywidualni/bankowosc-internetowa",
+                                title: "Bankowość",
+                                webview_height_ratio: "full"
+                                }
+                            ];
+                            sendButtonMessage(sender, "Najświeże informajcę odnośnie ubezpieczeń znajdziesz klikając poniżej: ", buttons);
+                            
+                        }, 50)
+                        break
+
+                        case "Produkty-ogolne.Produkty-Premium":
+
+                
+                            handleMessages(messages, sender);
+                
+                            sendTypingOn(sender);
+                
+                            
+                            setTimeout(function() {
+            
+                            let buttons = [
+                                {
+                                      
+                                type: "web_url",
+                                url: "https://www.ing.pl/indywidualni/oferta-premium",
+                                title: "Premium",
+                                webview_height_ratio: "full"
+                                }
+                            ];
+                            sendButtonMessage(sender, "Najświeże informajcę odnośnie ubezpieczeń znajdziesz klikając poniżej: ", buttons);
+                            
+                        }, 50)
+                        break
         //  let replies = [];
         //  console.log("Hello!")
         //     let reply = {
