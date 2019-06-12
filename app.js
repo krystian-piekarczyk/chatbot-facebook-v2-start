@@ -339,11 +339,11 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     let buttons = [
                         {
                             type: "web_url",
-                            url: "<https://www.ing.pl/>",
+                            url: "<www.ing.pl>",
                             title: "<Produkty>",
                             webview_height_ratio: "<full>",
                             messenger_extensions: "<true>",  
-                            fallback_url: "<URL_TO_FALLBACK_TO>"
+                            fallback_url: "<www.ing.pl>"
                         }
                     ];
                     sendButtonMessage(sender, "Tutaj znajdziesz aktualną ofertę naszych produktów", buttons);
