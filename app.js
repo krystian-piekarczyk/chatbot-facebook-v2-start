@@ -350,7 +350,29 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                 }, 50)
                 break
 
+                case "Produkty-ogolne.Produkty-Ogolne-Konta":
 
+                
+                    handleMessages(messages, sender);
+        
+                    sendTypingOn(sender);
+        
+                    
+                    setTimeout(function() {
+    
+                    let buttons = [
+                        {
+                              
+                        type: "web_url",
+                        url: "https://www.ing.pl/indywidualni/konta-osobiste",
+                        title: "Sprawdź tutaj",
+                        webview_height_ratio: "full"
+                        }
+                    ];
+                    sendButtonMessage(sender, "Najświeże informajcę odnośnie konta znajdziesz tutaj ", buttons);
+                    
+                }, 50)
+                break
         //  let replies = [];
         //  console.log("Hello!")
         //     let reply = {
