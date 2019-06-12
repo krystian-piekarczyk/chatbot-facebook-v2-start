@@ -326,7 +326,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
             break
 
 
-            case "Produkty-ogolne.Produkty-Ogolne":
+            case "Produkty-ogolne.Produkty-Pelna_Lista":
 
                 
                     handleMessages(messages, sender);
