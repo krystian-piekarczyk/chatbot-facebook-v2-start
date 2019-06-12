@@ -290,7 +290,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     {
                         // parameters.fields['typ-miejca-nazwa'].stringValue 
                         type: "web_url",
-                        url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=wpłatomat",
+                        url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=wplatomat",
                         title: "Lokalizacja",
                         webview_height_ratio: "full"
                     }
@@ -308,12 +308,12 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
     
                 sendTypingOn(sender);
     
-                //ask what user wants to do next
+                
                 setTimeout(function() {
 
                 let buttons = [
                     {
-                        // parameters.fields['typ-miejca-nazwa'].stringValue 
+                         
                         type: "web_url",
                         url: "https://spolecznosc.ingbank.pl/",
                         title: "Sprawdź tutaj",
@@ -321,9 +321,36 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     }
                 ];
                 sendButtonMessage(sender, "Poznaj naszą społeczność od środka:", buttons);
-                // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
+                
             }, 50)
             break
+
+
+            case "Produkty_Ogolne":
+
+                
+                    handleMessages(messages, sender);
+        
+                    sendTypingOn(sender);
+        
+                    
+                    setTimeout(function() {
+    
+                    let buttons = [
+                        {
+                            type: "web_url",
+                            url: "<https://www.ing.pl/>",
+                            title: "<Produkty>",
+                            webview_height_ratio: "<full>",
+                            messenger_extensions: "<true>",  
+                            fallback_url: "<URL_TO_FALLBACK_TO>"
+                        }
+                    ];
+                    sendButtonMessage(sender, "Tutaj znajdziesz aktualną ofertę naszych produktów", buttons);
+                    
+                }, 50)
+                break
+
 
         //  let replies = [];
         //  console.log("Hello!")
