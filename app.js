@@ -342,7 +342,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                             url: "<https://www.ing.pl>",
                             title: "<Produkty>",
                             webview_height_ratio: "<full>",
-                            messenger_extensions: "<true>",  
+                            messenger_extensions: "<false>",  
                             fallback_url: "<https://www.ing.pl>"
                         }
                     ];
