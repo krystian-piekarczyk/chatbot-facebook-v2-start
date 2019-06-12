@@ -316,7 +316,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                          
                         type: "web_url",
                         url: "https://spolecznosc.ingbank.pl/",
-                        title: "Sprawdź tutaj",
+                        title: "Społeczność",
                         webview_height_ratio: "full"
                     }
                 ];
