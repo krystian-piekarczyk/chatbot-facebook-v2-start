@@ -290,7 +290,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                     {
                         // parameters.fields['typ-miejca-nazwa'].stringValue 
                         type: "web_url",
-                        url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=wplatomat",
+                        url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=bankomat",
                         title: "Zgadzam się",
                         webview_height_ratio: "full"
                     }
