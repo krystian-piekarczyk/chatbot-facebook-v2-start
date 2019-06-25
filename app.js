@@ -291,11 +291,11 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
                         // parameters.fields['typ-miejca-nazwa'].stringValue 
                         type: "web_url",
                         url: "https://www.ing.pl/oddzialy-i-bankomaty/chatbot?type=wplatomat",
-                        title: "Lokalizacja",
+                        title: "Zgadzam się",
                         webview_height_ratio: "full"
                     }
                 ];
-                sendButtonMessage(sender, "Aby użyć funkcji lokalizacji potrzebuję twojej zgody, klikając przycisk poniżej zgadzasz się na jej udostępnienie", buttons);
+                sendButtonMessage(sender, "Potrzebuję Twojej zgody, żeby skorzystać z lokalizacji w Twoim urządzeniu. Kliknij przycisk ''Zgadzam się'', jeśli wyrażasz zgodę na udostępnienie lokalizacji.", buttons);
                 // czy w seksji powyżej mogę mieć przycisk który uruchamia lokalizację na messengerze ?
             }, 50)
             break
